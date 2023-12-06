@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class FileUploadController extends Controller
+{
+    public function store (Request $request) {
+        $request->validate([
+            'resume' => 'mimes:pdf,doc,docx'
+        ]);
+        if ($request->hasFile('file')){
+
+            $file = $request->file('file')->store('resume', 'public');
+            User::where('id', auth()->user()->id)->update([
+               'resume' => $file
+            ]);
+
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['error' => 'error']);
+    }
+
+    public function apply($listingId){
+
+        $user = auth()->user();
+        $user->listings()->syncWithoutDetaching($listingId);
+        return back()->with('success','Your application was submitted successfully');
+    }
+}

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ApplicantController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware(['isAdmin']);

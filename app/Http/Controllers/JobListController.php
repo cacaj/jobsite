@@ -12,4 +12,8 @@ class JobListController extends Controller
 
         return view('main' , compact('jobs'));
     }
+
+    public function show (Listing $listing){
+        return view('show', compact('listing'));
+    }
 }

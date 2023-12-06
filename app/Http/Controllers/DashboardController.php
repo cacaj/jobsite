@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,9 @@ class DashboardController extends Controller
             return view('dashboard');
     }
     public function home (){
-        return view('home');
+
+        $jobs = Listing::with('profile')->get();
+        return view('home', compact('jobs'));
     }
     public function verify(){
         $user = Auth::user();

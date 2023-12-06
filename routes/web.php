@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\JobListController;
 use App\Http\Controllers\SubsriptionController;
 use App\Http\Controllers\UserController;
@@ -38,7 +39,9 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
    return redirect('/dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-
+Route::post('resume/upload', [FileUploadController::class, 'store'])->middleware('auth');
+Route::post('/applications/{listingId}/submit' , [FileUploadController::class, 'apply'])->name('application.submit');
+Route::get('/jobs/{listing:slug}' , [JobListController::class, 'show'])->name('job.show');
 
 Route::get('/register/user', [UserController::class, 'createUser'])->name('create.user')->middleware('isLogged');
 Route::post('/register/user', [UserController::class, 'storeUser'])->name('store.user');

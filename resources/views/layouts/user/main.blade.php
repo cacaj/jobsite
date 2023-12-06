@@ -47,6 +47,9 @@
 <script type="text/javascript" src="{{asset('richtexteditor/plugins/all_plugins.js')}}"></script>
 <!-- Template Javascript -->
 <script src="{{asset('js/main.js')}}"></script>
+{{--Filepond--}}
+<script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+
 <script>
     $( function() {
         $("#datepicker").datepicker();
