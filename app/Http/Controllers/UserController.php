@@ -73,12 +73,15 @@ class UserController extends Controller
     }
     public function postLogout(){
         auth()->logout();
-        return redirect()->route('login');
+        return redirect()->route('main');
     }
     public function profile(){
         return view('profile.index');
     }
     public function update(Request $request){
+        $request->validate([
+            'profile_pic' => 'mimes:jpg,jpeg,png',
+        ]);
         if ($request->hasFile('profile_pic')){
             $imagePath = $request->file('profile_pic')->store('profile','public');
             User::find(auth()->user()->id)->update(['profile_pic' => $imagePath]);

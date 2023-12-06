@@ -1,6 +1,6 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-secondary navbar-dark">
-        <a href="{{route('home')}}" class="navbar-brand mx-4 mb-3">
+        <a href="{{route('main')}}" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary"><i class="fa fa-home me-2"></i>CacajPortal</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">

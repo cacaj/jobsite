@@ -22,6 +22,9 @@
                                 @endif
                                 <label for="profile_image">Profile image</label>
                                 <input type="file" class="form-control" id="profile_image" name="profile_pic">
+                                    @if($errors->has('profile_pic'))
+                                        <div class="error">{{$errors->first('profile_pic')}}</div>
+                                    @endif
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="name" name="name" value="{{auth()->user()->name}}"
@@ -82,6 +85,9 @@
                                 @endif
                             <div class="form-group mt-4">
                                 <button class="btn btn-warning" type="submit">Update</button>
+                                @if(auth()->user()->resume)
+                                <a class="btn btn-success" href="{{Storage::url(auth()->user()->resume)}}">Download</a>
+                                @endif
                             </div>
                         </div>
                         </div>

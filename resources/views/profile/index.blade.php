@@ -16,18 +16,21 @@
             <div class="col-md-8 mt-3">
                 <div class="form-group mb-3">
                     @if(auth()->user()->profile_pic)
-                        <img class="rounded" src="{{Storage::url(auth()->user()->profile_pic)}}" alt="" style="width: 390px">
+                        <img class="rounded" src="{{Storage::url(auth()->user()->profile_pic)}}" alt="" style="width: 250px">
                         <br>
                     @else
-                        <img class="rounded" src="{{asset('img/user.png')}}" alt="" style="width: 390px">
+                        <img class="rounded" src="{{asset('img/user.png')}}" alt="" style="width: 250px">
                         <br>
                     @endif
                     @if(auth()->user()->user_type == 'user')
-                    <label for="logo">Profile picture</label>
+                    <label for="profile_pic">Profile picture</label>
                         @else
                             <label for="logo">Company logo</label>
                         @endif
                     <input type="file" class="form-control bg-dark" id="logo" name="profile_pic">
+                        @if($errors->has('profile_pic'))
+                            <div class="error">{{$errors->first('profile_pic')}}</div>
+                        @endif
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="name" name="name" value="{{auth()->user()->name}}"

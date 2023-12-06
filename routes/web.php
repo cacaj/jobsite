@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
-    Route::get('/', [JobListController::class, 'index'])->middleware('isLogged');
+    Route::get('/', [JobListController::class, 'index'])->middleware('isLogged')->name('main');
     Route::get('/home', [DashboardController::class, 'home'])->middleware('verified')->name('home');
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['verified', 'isAdmin'])->name('dashboard');
 });
