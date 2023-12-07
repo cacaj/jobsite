@@ -25,13 +25,12 @@
                     <div class="d-flex w-100 justify-content-between">
                         <h4 class="{{$user->pivot->shortlisted ? 'text-primary' : ''}} mb-0">{{$user->name}}</h4>
                                                 @if($user->resume)
-                            <small><a href="{{Storage::url($user->resume)}}" class="btn btn-sm btn-lg-square btn-outline-primary" target="_blank"><i class="fa fa-download"></i></a></small>
+                            <small><a href="{{Storage::url($user->resume)}}" class="btn btn-lg btn-lg-square btn-outline-primary" target="_blank"><i class="fa fa-download"></i></a></small>
                                                 @else
                             <small>User has no resume</small>
                                                 @endif
                         <form action="{{route('applicants.shortlist', [$listing->id,$user->id])}}" method="post"> @csrf
-                            <small><button class="btn btn-sm btn-lg-square {{$user->pivot->shortlisted ? 'btn-primary' : 'btn-outline-primary'}} " type="submit"><i class="{{$user->pivot->shortlisted ? 'fa fa-user-check' : 'fa fa-list-ol'}}"></i></button></small>
-
+                            <small><button class="btn btn-lg btn-lg-square {{$user->pivot->shortlisted ? 'btn-primary' : 'btn-outline-primary'}} " type="submit"><i class="{{$user->pivot->shortlisted ? 'fa fa-user-check' : 'fa fa-list-ol'}}"></i></button></small>
                         </form>
                     </div>
                     <span class="{{$user->pivot->shortlisted ? 'text-primary' : ''}}">{{$user->email}}</span> <br>

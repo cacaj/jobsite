@@ -39,7 +39,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
    return redirect('/dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::post('resume/upload', [FileUploadController::class, 'store'])->middleware('auth');
+Route::post('/resume/upload', [FileUploadController::class, 'store'])->middleware('auth');
 Route::post('/applications/{listingId}/submit' , [FileUploadController::class, 'apply'])->name('application.submit');
 Route::get('/jobs/{listing:slug}' , [JobListController::class, 'show'])->name('job.show');
 

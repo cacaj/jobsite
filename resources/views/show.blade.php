@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit"  class="btn btn-primary">Apply</button>
+                                            <button type="submit" id="btnApply" disabled class="btn btn-primary">Apply</button>
                                         </div>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
         }
     </style>
     {{--Filepond--}}
-    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
+    <script src="{{asset('js/filepond.js')}}"></script>
     <script>
         // Get a reference to the file input element
         const inputElement = document.querySelector('input[type="file"]');
@@ -83,8 +83,17 @@
                     method: 'POST',
                     withCredentials: false,
                     headers: {'X-CSRF-TOKEN': '{{csrf_token()}}'},
-                    onload: null,
-                    onerror: null,
+                    onload: (response) => {
+                        document.getElementById('btnApply').removeAttribute('disabled')
+                    },
+                    onerror: (response) => {
+                        console.log('error while uploading...', response)
+                    },
+                    ondata:(formData) => {
+                        formData.append('file', pond.getFiles()[0].file, pond.getFiles()[0].file.name)
+
+                        return formData
+                    },
                 },
             },
         });
