@@ -42,6 +42,7 @@ Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $requ
 Route::post('/resume/upload', [FileUploadController::class, 'store'])->middleware('auth');
 Route::post('/applications/{listingId}/submit' , [FileUploadController::class, 'apply'])->name('application.submit');
 Route::get('/jobs/{listing:slug}' , [JobListController::class, 'show'])->name('job.show');
+Route::get('/jobs', [JobListController::class, 'index'])->name('listing.index');
 
 Route::get('/register/user', [UserController::class, 'createUser'])->name('create.user')->middleware('isLogged');
 Route::post('/register/user', [UserController::class, 'storeUser'])->name('store.user');

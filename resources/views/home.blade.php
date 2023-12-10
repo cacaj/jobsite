@@ -8,8 +8,7 @@
                 <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class=" bg-secondary rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-2">
-                            <h6 class="mb-0">{{$job->job_type}}</h6>
-
+                            <span class="badge bg-primary mb-4">{{$job->job_type}}</span>
                         </div>
                         <div class="d-flex align-items-center py-3" >
                             <img class="mb-3 rounded-circle flex-shrink-0" src="{{Storage::url($job->profile->profile_pic)}}" alt="" style="width: 125px; height: 125px;">
@@ -23,7 +22,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
-                            <small class="text-warning">Deadline date: {{$job->application_close}}</small>
+                            <small class="text-white">Deadline date: {{$job->application_close}}</small>
                             <a href="{{route('job.show', [$job->slug])}}" class="btn btn-primary">View</a>
                         </div>
                     </div>
