@@ -2,6 +2,37 @@
 
 @section('content')
     <div class="container-fluid pt-4 px-4">
+        <div class="d-lg-flex d-sm-flex justify-content-between">
+            <h4>Recommended Jobs</h4>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Salary
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['sort' => 'salary_high_to_low'])}}">High  to low</a></li>
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['sort' => 'salary_low_to_high'])}}">Low to high</a></li>
+
+                </ul>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Date
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['date' => 'latest'])}}">Latest</a></li>
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['date' => 'oldest'])}}">Oldest</a></li>
+                </ul>
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Job
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['job_type' => 'full_time'])}}">Full time</a></li>
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['job_type' => 'part_time'])}}">Part time</a></li>
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['job_type' => 'casual'])}}">Casual</a></li>
+                    <li><a class="dropdown-item" href="{{route('listing.index', ['job_type' => 'contract'])}}">Contract</a></li>
+
+                </ul>
+            </div>
+        </div>
+    <div class="container-fluid pt-4 px-4">
         <div class="row g-4">
 
             @foreach($jobs as $job)

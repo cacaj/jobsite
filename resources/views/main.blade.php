@@ -1,7 +1,7 @@
 @extends('layouts.user.main')
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container-fluid pt-4 px-4">
     <div class="d-lg-flex d-sm-flex justify-content-between">
         <h4>Recommended Jobs</h4>
         <div class="dropdown">
