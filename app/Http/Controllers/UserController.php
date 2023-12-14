@@ -17,6 +17,10 @@ class UserController extends Controller
         return view('user.registration');
     }
 
+    public function jobApplied () {
+        $users = User::with('listings')->where('id', auth()->user()->id)->get();
+        return view('user.jobs-applied', compact('users'));
+    }
     public function createAdmin () {
         return view('user.admin-register');
     }

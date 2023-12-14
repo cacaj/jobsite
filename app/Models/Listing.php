@@ -29,7 +29,6 @@ class Listing extends Model
     }
     public function profile(){
         return $this->belongsTo(User::class, 'user_id', 'id');
-
     }
 
 

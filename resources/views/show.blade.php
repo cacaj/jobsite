@@ -8,10 +8,17 @@
                 <div class="card mt-5">
                     <img src="{{Storage::url($listing->feature_image)}}" class="card-img-top" alt="">
                     <div class="card-body">
+                        <div class="card-header mb-5 align-items-center">
+                            <a href="{{route('company',[$listing->profile->id])}}">
+                                <img src="{{Storage::url($listing->profile->profile_pic)}}" width="60" height="60" class="rounded-circle" alt="">
+                            </a>
+                            <b>{{$listing->profile->name}}</b>
+                        </div>
+
                         @if(Session::has('success'))
                             <div class="alert alert-success">{{Session::get('success')}}</div>
                         @endif
-                        <h1 class="card-title">{{$listing->title}}</h1>
+                        <h1 class="card-title mt-3">{{$listing->title}}</h1>
                         <span class="badge bg-primary mb-4">{{$listing->job_type}}</span>
                         <p class="text-white">{{$listing->address}}</p>
                         <p class="text-white">€{{number_format($listing->salary,2)}}</p>

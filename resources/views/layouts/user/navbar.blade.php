@@ -102,6 +102,7 @@
                     @if(Auth::check())
                         @if(auth()->user()->user_type == 'user')
                     <a href="{{route('user.user.profile')}}" class="dropdown-item">My Profile</a>
+                            <a href="{{route('job.applied')}}" class="dropdown-item">My applies</a>
                         @else
                             <a href="{{route('user.profile')}}" class="dropdown-item">My Profile</a>
                             <a href="{{route('subscribe')}}" class="dropdown-item">Subscription</a>

@@ -44,7 +44,7 @@
                     </div>
                     <div class="d-flex align-items-center py-3" >
                         <img class="mb-3 rounded-circle flex-shrink-0" src="{{Storage::url($job->profile->profile_pic)}}" alt="" style="width: 125px; height: 125px;">
-                        <div class=" ms-3">
+                        <div class="ms-3">
                             <h3 class="mb-3 mt-2 w-100">{{$job->profile->name}}</h3>
                             <h5>{{$job->title}} </h5>
                             <p>Address: {{$job->address}}</p>

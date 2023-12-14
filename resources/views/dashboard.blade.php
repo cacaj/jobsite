@@ -26,7 +26,38 @@
         @endif
         @endif
 
-        <div class="row justify-content-center">
+            <div class="container-fluid pt-4 px-4">
+                <div class="row rounded align-items-center justify-content-center mx-0">
+                    <div class="col-md-6 mt-4 mb-3 text-center">
+                       <div class="row">
+                           <div class="col-xl-3 col-md-6">
+                               <div class="card bg-success text-white mb-4">
+                                   <div class="card-body">Total jobs: {{\App\Models\Listing::where('user_id', auth()->user()->id)->count()}}</div>
+                                   <div class="card-footer d-flex align-items-center justify-content-between">
+                                       <a href="/job" class="small text-white stretched-link">View details</a>
+                                       <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                   </div>
+                               </div>
+                               <div class="card bg-info text-white mb-4">
+                                   <div class="card-body">Your profile</div>
+                                   <div class="card-footer d-flex align-items-center justify-content-between">
+                                       <a href="/user/profile" class="small text-white stretched-link">View details</a>
+                                       <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                   </div>
+                               </div>
+                               <div class="card bg-light text-white mb-4">
+                                   <div class="card-body">Your current plan ({{\App\Models\User::where('id', auth()->user()->id)->first()->plan}})</div>
+{{--                                   <div class="card-footer d-flex align-items-center justify-content-between">--}}
+{{--                                       <a href="/job" class="small text-white stretched-link">View details</a>--}}
+{{--                                       <div class="small text-white"><i class="fas fa-angle-right"></i></div>--}}
+{{--                                   </div>--}}
+                               </div>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+
 
 
 

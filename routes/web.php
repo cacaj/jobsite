@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('/', [JobListController::class, 'index'])->middleware('isLogged')->name('main');
+    Route::get('/company/{id}', [JobListController::class, 'company'])->middleware('isLogged')->name('company');
     Route::get('/home', [DashboardController::class, 'home'])->middleware('verified')->name('home');
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['verified', 'isAdmin'])->name('dashboard');
 });
@@ -60,6 +61,8 @@ Route::post('user/profile', [UserController::class, 'update'])->name('user.updat
 Route::get('user/profile/user', [UserController::class, 'userProfile'])->name('user.user.profile')->middleware(['auth','verified']);
 Route::post('user/password', [UserController::class, 'updatePassword'])->name('user.password')->middleware(['auth','verified']);
 Route::post('upload/resume', [UserController::class, 'uploadResume'])->name('upload.resume')->middleware(['auth','verified']);
+
+Route::get('user/job/applied', [UserController::class, 'jobApplied'])->name('job.applied')->middleware(['auth','verified']);
 
 
 Route::get('/verify', [DashboardController::class, 'verify'])->name('verification.notice');

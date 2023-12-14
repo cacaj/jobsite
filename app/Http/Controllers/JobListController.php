@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class JobListController extends Controller
 {
+
+    public function company ($id){
+
+        $company = User::where('id', $id)->where('user_type', 'admin')->first();
+        return view('company', compact('company'));
+    }
     public function index(Request $request){
 
         $salary = $request->query('sort');
