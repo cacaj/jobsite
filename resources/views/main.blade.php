@@ -1,10 +1,11 @@
 @extends('layouts.user.main')
 
 @section('content')
-    <div class="container mt-5 mb-3 ">
-    <div class="col-sm-12 col-xl-6">
+
+    <div class="container-fluid pt-4 px-4">
+    <div class="col-sm-6 col-xl-12">
         <div class="bg-secondary rounded h-100 p-4">
-            <h6 class="mb-4">Find your next employer</h6>
+            <h6 class="mb-4">Find your future company</h6>
             <div class="owl-carousel testimonial-carousel">
                 @foreach(\App\Models\User::where('user_type','admin')->take(6)->orderBy('id','DESC')->get() as $employer)
                 <div class="testimonial-item text-center">
