@@ -1,6 +1,26 @@
 @extends('layouts.user.main')
 
 @section('content')
+    <div class="container mt-5 mb-3 ">
+    <div class="col-sm-12 col-xl-6">
+        <div class="bg-secondary rounded h-100 p-4">
+            <h6 class="mb-4">Find your next employer</h6>
+            <div class="owl-carousel testimonial-carousel">
+                @foreach(\App\Models\User::where('user_type','admin')->take(6)->orderBy('id','DESC')->get() as $employer)
+                <div class="testimonial-item text-center">
+                    @if($employer->profile_pic)
+                        <a href="{{route('company',[$employer->id])}}"><img class="img-fluid rounded-circle mx-auto mb-4" src="{{Storage::url($employer->profile_pic)}}" style="width: 250px; height: 250px;"></a>
+                    @else
+                        <a href="{{route('company',[$employer->id])}}"><img class="img-fluid rounded-circle mx-auto mb-4" src="icons8-amazon-60.png" style="width: 250px; height: 250px;"></a>
+                    @endif
+                    <h5 class="mb-1">{{$employer->name}}</h5>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    </div>
+
     <div class="container-fluid pt-4 px-4">
     <div class="d-lg-flex d-sm-flex justify-content-between">
         <h4>Recommended Jobs</h4>
