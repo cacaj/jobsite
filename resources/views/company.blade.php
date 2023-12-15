@@ -6,7 +6,7 @@
         <div class="row mt-2">
             <div class="col">
                 <div class="hero-section" style="background-color:#f5f5f5;width:100%;height:400px;">
-                    <img src="{{asset('img/share.jpg')}}" style="width: 100%; height:400px;">
+                    <img src="{{Storage::url($company->profile_pic)}}" style="width: 100%; height:400px;">
                 </div>
             </div>
         </div>
