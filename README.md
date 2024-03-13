@@ -19,7 +19,25 @@ Installation
   php artisan migrate
   php artisan queue:work
 ```
+## Environment Variables
 
+To run this project, you will need to add the following environment variables to your .env file
+
+`DB_CONNECTION=mysql`
+
+`DB_HOST=127.0.0.1`
+
+`DB_PORT=3306`
+
+`DB_DATABASE=laravel`
+
+`DB_USERNAME=root`
+
+`DB_PASSWORD=`
+
+Do not forget to add stripe key
+
+`STRIPE_SECRET_KEY="your-key"`
 
     
 ## 🔗 Links
